@@ -1,0 +1,145 @@
+// types of typescript
+
+string
+number
+boolean
+
+arrays:
+- to specify type of an array like [1,2,3] -> can use number[]
+- string[] -> array of strings
+- can also be written as -> Array<string>
+
+
+// type annotations on variables:
+
+let myName: string = "Alice"; //type can be inferred
+let myName = "Alice";
+
+
+// functions (can add type annotations for in and out after each parameter)
+
+function greet(name: string) {
+    console.log("Hello" + name.toUpperCase() + "!!");
+}
+
+- can add return type annotations
+- ts will infer the function's return type based on return statements
+
+
+// object types: 
+(any js value with properties, which is almost all, so should specify object output)
+
+- to define an object type, list its properties and their types
+
+function printCoord(pt: {x: number; y: number}) {
+    console.log("The coordinate value is " + pt.x + "+" + pt.y);
+}
+printCoord({x: 3; y: 7}); //can use ; or , to separate the properties
+
+
+// optional properties:
+add a '?' after the property name
+
+in js, if access a property that doesn't exist, you'll get value undefined rather than runtime error
+so, check for 'undefined' before using it:
+
+function printName(obj: {first: string, last?: string}) {
+    if (obj.last !== undefined) {
+        console.log(obj.last.toUpperCase());
+    }
+}
+
+or
+
+console.log(obj.last?.toUpperCase());
+
+
+// union types: (combine types - may represent any one of these types)
+
+function printId(id: string | number) {
+    console.log("Your ID is " + id);
+}
+printId(101); // OK
+printId("202"); // OK
+printId({myID: 22342 }); //error
+
+
+// type aliases:
+- when u want to used the same type more than once and 
+refer to it by a single name
+- it is basically a name for any type
+
+type Point = {
+    x: number;
+    y: number;
+};
+
+function printCoord(pt: Point) {
+    console.log("The coordinate values are " + pt.x + "+" + pt.y);
+}
+
+printCoord({x: 100, y: 100});
+
+or
+
+type ID = number | string;
+
+
+// interfaces
+- an interface declaration is another way to name an object type
+
+interface Point {
+    x: number;
+    y: number;
+}
+
+function printCoord(pt: Point) {
+    console.log("The coordinate values are " + pt.x + "+" + pt.y);
+}
+
+printCoord({x: 100, y: 100});
+
+// interfaces and type aliases are very similar
+// only diff: type cannot be re-opened to add new properties
+vs an interface which is always extendable
+
+// extending interfaces:
+interface Animal {
+    name: string;
+}
+
+interface Bear extends Animal {
+    honey: boolean;
+}
+
+const bear = getBear();
+bear.name;
+bear.honey;
+
+// extending type only by intersections
+type Animal = {
+  name: string;
+}
+
+type Bear = Animal & { 
+  honey: boolean;
+}
+
+const bear = getBear();
+bear.name;
+bear.honey;
+        
+
+// type assertions:
+e.g. is using document.getElementById, ts only knows this will return
+some kind of HTMLElement, but you might know that your page will always
+have an HTMLCanvasElement with a given ID
+In this case - use typeassertion to specify a more specific type
+
+const myCanvas = document.getElementById("main_canvas") as HTMLCanvasElement
+
+or
+
+const myCanvas = <HTMLCanvasElement>document.getElementById("main_canvas");
+
+
