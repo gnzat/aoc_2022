@@ -1,5 +1,5 @@
 import * as fs from "fs";
-import { arrayBuffer } from "stream/consumers";
+// import { arrayBuffer } from "stream/consumers";
 
 function readFile(filename: string) {
   const data = fs.readFileSync(filename, "utf8"); 
