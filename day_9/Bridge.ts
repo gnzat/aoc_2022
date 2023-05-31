@@ -75,15 +75,13 @@ function isOne(tail: number[], head: number[]): Boolean {
   }
   // check up/down (y-axis):
   else if (
-    (Math.abs(head_y - tail_y) === 1 && head_x === tail_x) ||
-    (Math.abs(head_y - tail_y) === 0 && head_x === tail_x)
+    (Math.abs(head_y - tail_y) === 1 && head_x === tail_x)
   ) {
     return true;
   }
   // check right/left (x-axis):
   else if (
-    (Math.abs(head_x - tail_x) === 1 && head_y === tail_y) ||
-    (Math.abs(head_x - tail_x) === 0 && head_y === tail_y)
+    (Math.abs(head_x - tail_x) === 1 && head_y === tail_y)
   ) {
     return true;
   }
