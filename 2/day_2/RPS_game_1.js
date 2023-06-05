@@ -9,39 +9,37 @@ function readFile(filename) {
 }
 var arr = readFile("./input.txt");
 function getRound(round) {
-    var opp_ch = round[0];
-    var my_ch = round[2];
-    var opp_val = "";
-    var my_val = "";
+    var oppCh = round[0];
+    var myCh = round[2];
     var result = 0;
     var put = 0;
-    console.log(opp_ch);
-    console.log(my_ch);
-    if (my_ch === "X") {
+    // console.log(opp_ch);
+    // console.log(my_ch);
+    if (myCh === "X") {
         put += 1;
     }
-    else if (my_ch === "Y") {
+    else if (myCh === "Y") {
         put += 2;
     }
-    else if (my_ch === "Z") {
+    else if (myCh === "Z") {
         put += 3;
     }
-    if (my_ch === "X" && opp_ch === "C") {
+    if (myCh === "X" && oppCh === "C") {
         result += 6;
     }
-    else if (my_ch === "Y" && opp_ch === "A") {
+    else if (myCh === "Y" && oppCh === "A") {
         result += 6;
     }
-    else if (my_ch === "Z" && opp_ch === "B") {
+    else if (myCh === "Z" && oppCh === "B") {
         result += 6;
     }
-    else if (my_ch === "Y" && opp_ch === "B") {
+    else if (myCh === "Y" && oppCh === "B") {
         result += 3;
     }
-    else if (my_ch === "Z" && opp_ch === "C") {
+    else if (myCh === "Z" && oppCh === "C") {
         result += 3;
     }
-    else if (my_ch === "X" && opp_ch === "A") {
+    else if (myCh === "X" && oppCh === "A") {
         result += 3;
     }
     return put + result;

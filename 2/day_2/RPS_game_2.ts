@@ -7,48 +7,40 @@ function readFile(filename: string) {
   return content;
 }
 
-const arr: string[] = readFile("./input.txt");
-
 function getScore(round: string): number {
-  const opp_ch: string = round[0];
+  const oppCh: string = round[0];
   const outcome: string = round[2];
   let result: number = 0;
-  
+
   if (outcome === "Y") {
-    result += 3
-    if (opp_ch === "A") {
-        result += 1;
-    }
-    else if (opp_ch === "B") {
-        result += 2;
-    }
-    else if (opp_ch === "C") {
-        result += 3;
+    result += 3;
+    if (oppCh === "A") {
+      result += 1;
+    } else if (oppCh === "B") {
+      result += 2;
+    } else if (oppCh === "C") {
+      result += 3;
     }
   }
 
   if (outcome === "X") {
-    if (opp_ch === "A") {
-        result += 3;
-    }
-    else if (opp_ch === "B") {
-        result += 1;
-    }
-    else if (opp_ch === "C") {
-        result += 2;
+    if (oppCh === "A") {
+      result += 3;
+    } else if (oppCh === "B") {
+      result += 1;
+    } else if (oppCh === "C") {
+      result += 2;
     }
   }
 
   if (outcome === "Z") {
-    result+=6
-    if (opp_ch === "A") {
-        result += 2
-    }
-    else if (opp_ch === "B") {
-        result += 3
-    }
-    else if (opp_ch === "C") {
-        result += 1;
+    result += 6;
+    if (oppCh === "A") {
+      result += 2;
+    } else if (oppCh === "B") {
+      result += 3;
+    } else if (oppCh === "C") {
+      result += 1;
     }
   }
 
