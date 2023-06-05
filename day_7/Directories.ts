@@ -38,8 +38,8 @@ for (const line of lines) {
 
     //to add file sizes to all directories involved:
     for (let i = 1; i < cd.length; i++) {
-      const new_cd: string = cd.slice(0, -i).join("");
-      sizes[new_cd] += Number(l[0]);
+      const newCd: string = cd.slice(0, -i).join("");
+      sizes[newCd] += Number(l[0]);
     }
   }
 }

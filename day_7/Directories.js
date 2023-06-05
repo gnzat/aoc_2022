@@ -38,8 +38,8 @@ for (var _i = 0, lines_1 = lines; _i < lines_1.length; _i++) {
         sizes[path] += Number(l[0]);
         //to add file sizes to all directories involved:
         for (var i = 1; i < cd.length; i++) {
-            var new_cd = cd.slice(0, -i).join("");
-            sizes[new_cd] += Number(l[0]);
+            var newCd = cd.slice(0, -i).join("");
+            sizes[newCd] += Number(l[0]);
         }
     }
 }
