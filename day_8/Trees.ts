@@ -4,8 +4,8 @@ import * as fs from "fs";
 const file = "input.txt";
 const data = fs.readFileSync(file, "utf8");
 const lines = data.split("\n");
-let edge: number = 0; //perimeter of trees
 const inner = new Set(); //to avoid double counting, record all the positions of the visible trees
+let edge: number = 0; //perimeter of trees
 
 for (let row = 0; row < lines.length; row++) {
   if (row === 0 || row === lines.length - 1) {
@@ -78,5 +78,5 @@ for (let row = 0; row < lines.length; row++) {
 
 const middle = inner.size;
 const total = middle + edge;
-console.group(edge, middle, total);
+console.log(total);
 // 1676

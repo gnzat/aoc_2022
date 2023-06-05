@@ -14,7 +14,6 @@ for (var row = 0; row < lines.length; row++) {
         //tackle horizontal of target:
         for (var col = 1; col < lines.length - 1; col++) {
             var target = Number(lines[row][col]);
-            // row - 1, col - 2
             //settle left side:
             var max_left = 0;
             for (var i = col - 1; i >= 0; i--) {
@@ -71,7 +70,6 @@ for (var row = 0; row < lines.length; row++) {
         }
     }
 }
-// console.log(scores);
 var max = 0;
 scores.forEach(function (value) {
     if (max < value) {
@@ -79,3 +77,4 @@ scores.forEach(function (value) {
     }
 });
 console.log(max);
+// 313200

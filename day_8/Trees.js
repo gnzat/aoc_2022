@@ -1,13 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var fs = require("fs");
-// const file = "test2.txt";
 // const file = "input_test.txt";
 var file = "input.txt";
 var data = fs.readFileSync(file, "utf8");
 var lines = data.split("\n");
-var edge = 0; //perimeter of trees
 var inner = new Set(); //to avoid double counting, record all the positions of the visible trees
+var edge = 0; //perimeter of trees
 for (var row = 0; row < lines.length; row++) {
     if (row === 0 || row === lines.length - 1) {
         edge += lines[row].length;
@@ -29,8 +28,6 @@ for (var row = 0; row < lines.length; row++) {
             }
             if (max_left < target) {
                 inner.add(position);
-                // console.log(position, target);
-                // console.log(target);
             }
             //settle right side:
             var max_right = 0;
@@ -41,8 +38,6 @@ for (var row = 0; row < lines.length; row++) {
             }
             if (max_right < target) {
                 inner.add(position);
-                // console.log(position);
-                // console.log(target);
             }
         }
         // settle vertical of target:
@@ -61,8 +56,6 @@ for (var row = 0; row < lines.length; row++) {
             }
             if (max_top < target) {
                 inner.add(position);
-                // console.log(position);
-                // console.log(target);
             }
             //settle bottom:
             var max_bottom = 0;
@@ -73,15 +66,11 @@ for (var row = 0; row < lines.length; row++) {
             }
             if (max_bottom < target) {
                 inner.add(position);
-                // console.log(position);
-                // console.log(target);
             }
         }
     }
 }
-// console.log(inner.size);
-// console.log(inner);
 var middle = inner.size;
 var total = middle + edge;
-console.group(edge, middle, total);
-console.log("023322201321333021030055115233032255002015013044155106103011355435025324002515233340032023013101000".length);
+console.log(total);
+// 1676

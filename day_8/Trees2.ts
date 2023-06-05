@@ -13,7 +13,6 @@ for (let row = 0; row < lines.length; row++) {
     //tackle horizontal of target:
     for (let col = 1; col < lines.length - 1; col++) {
       let target = Number(lines[row][col]);
-      // row - 1, col - 2
 
       //settle left side:
       let max_left = 0;
@@ -77,9 +76,7 @@ for (let row = 0; row < lines.length; row++) {
   }
 }
 
-// console.log(scores);
 let max = 0;
-
 scores.forEach(function (value) {
   if (max < value) {
     max = value;
