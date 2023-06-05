@@ -15,27 +15,27 @@ for (let row = 0; row < lines.length; row++) {
       let target = Number(lines[row][col]);
 
       //settle left side:
-      let max_left = 0;
+      let maxLeft = 0;
       for (let i = col - 1; i >= 0; i--) {
         const tree = Number(lines[row][i]);
 
         if (tree < target) {
-          max_left++;
+          maxLeft++;
         } else {
-          max_left += 1;
+          maxLeft += 1;
           break;
         }
       }
 
       //settle right side:
-      let max_right = 0;
+      let maxRight = 0;
       for (let i = col + 1; i < lines[row].length; i++) {
         const tree = Number(lines[row][i]);
 
         if (tree < target) {
-          max_right++;
+          maxRight++;
         } else {
-          max_right += 1;
+          maxRight += 1;
           break;
         }
       }
@@ -43,33 +43,33 @@ for (let row = 0; row < lines.length; row++) {
       // settle vertical of target:
 
       //settle top:
-      let max_top = 0;
+      let maxTop = 0;
       for (let i = row - 1; i >= 0; i--) {
         const tree = Number(lines[i][col]);
 
         if (tree < target) {
-          max_top++;
+          maxTop++;
         } else {
-          max_top += 1;
+          maxTop += 1;
           break;
         }
       }
 
       //settle bottom:
-      let max_bottom = 0;
+      let maxBottom = 0;
       for (let i = row + 1; i < lines.length; i++) {
         const tree = Number(lines[i][col]);
 
         if (tree < target) {
-          max_bottom++;
+          maxBottom++;
         } else {
-          max_bottom += 1;
+          maxBottom += 1;
           break;
         }
       }
 
       //   console.log(target ,": ", max_left);
-      let total = max_bottom * max_top * max_right * max_left;
+      let total = maxBottom * maxTop * maxRight * maxLeft;
       scores.add(total);
       total = 0;
     }
@@ -77,7 +77,7 @@ for (let row = 0; row < lines.length; row++) {
 }
 
 let max = 0;
-scores.forEach(function (value) {
+scores.forEach(function(value) {
   if (max < value) {
     max = value;
   }

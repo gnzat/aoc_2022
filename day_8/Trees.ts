@@ -21,24 +21,24 @@ for (let row = 0; row < lines.length; row++) {
       const position = String(x) + "," + String(y);
 
       //settle left side:
-      let max_left = 0;
+      let maxLeft = 0;
       for (let i = 0; i < col; i++) {
-        if (Number(lines[row][i]) > max_left) {
-          max_left = Number(lines[row][i]);
+        if (Number(lines[row][i]) > maxLeft) {
+          maxLeft = Number(lines[row][i]);
         }
       }
-      if (max_left < target) {
+      if (maxLeft < target) {
         inner.add(position);
       }
 
       //settle right side:
-      let max_right = 0;
+      let maxRight = 0;
       for (let i = col + 1; i < lines[row].length; i++) {
-        if (Number(lines[row][i]) > max_right) {
-          max_right = Number(lines[row][i]);
+        if (Number(lines[row][i]) > maxRight) {
+          maxRight = Number(lines[row][i]);
         }
       }
-      if (max_right < target) {
+      if (maxRight < target) {
         inner.add(position);
       }
     }
@@ -52,24 +52,24 @@ for (let row = 0; row < lines.length; row++) {
       const position = String(y) + "," + String(x);
 
       //settle top:
-      let max_top = 0;
+      let maxTop = 0;
       for (let i = 0; i < col; i++) {
-        if (Number(lines[i][row]) > max_top) {
-          max_top = Number(lines[i][row]);
+        if (Number(lines[i][row]) > maxTop) {
+          maxTop = Number(lines[i][row]);
         }
       }
-      if (max_top < target) {
+      if (maxTop < target) {
         inner.add(position);
       }
 
       //settle bottom:
-      let max_bottom = 0;
+      let maxBottom = 0;
       for (let i = col + 1; i < lines.length; i++) {
-        if (Number(lines[i][row]) > max_bottom) {
-          max_bottom = Number(lines[i][row]);
+        if (Number(lines[i][row]) > maxBottom) {
+          maxBottom = Number(lines[i][row]);
         }
       }
-      if (max_bottom < target) {
+      if (maxBottom < target) {
         inner.add(position);
       }
     }
