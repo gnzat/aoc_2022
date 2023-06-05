@@ -16,18 +16,17 @@ function getPriority2(group: string[]): number {
     (char) => set2.has(char) && set3.has(char)
   );
 
-  //   console.log(intersection);
   const index = str.indexOf(intersection[0]);
   return index + 1;
 }
 
 const arr = readFile("./input.txt");
 let total: number = 0;
-
 let i = 0;
+
 while (i < arr.length - 2) {
   const group = [arr[i], arr[i + 1], arr[i + 2]];
-  console.log(group);
+  // console.log(group);
   const result: number = getPriority2(group);
   total += result;
   i += 3;

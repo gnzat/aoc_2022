@@ -12,7 +12,6 @@ function getPriority2(group) {
     var set3 = new Set(group[2]);
     var str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     var intersection = Array.from(set1).filter(function (char) { return set2.has(char) && set3.has(char); });
-    //   console.log(intersection);
     var index = str.indexOf(intersection[0]);
     return index + 1;
 }
@@ -21,7 +20,7 @@ var total = 0;
 var i = 0;
 while (i < arr.length - 2) {
     var group = [arr[i], arr[i + 1], arr[i + 2]];
-    console.log(group);
+    // console.log(group);
     var result = getPriority2(group);
     total += result;
     i += 3;

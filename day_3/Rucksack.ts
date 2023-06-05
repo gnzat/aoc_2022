@@ -11,16 +11,11 @@ function getPriority(rucksack: string): number {
   const first: string = rucksack.slice(0, len / 2);
   const last: string = rucksack.slice(len / 2);
   const str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  let index = 0;
-  //   let letter: string = "";
-  //   console.log(first, last);
 
   for (let i = 0; i < first.length; i++) {
     for (let x = 0; x < first.length; x++) {
       if (first[i] === last[x]) {
         let index = str.indexOf(first[i]);
-        // console.log(index);
-        // console.log(first[i]);
         return index + 1;
       }
     }
@@ -36,6 +31,5 @@ for (let i = 0; i < arr.length; i++) {
   total += result;
 }
 
-// console.log(line);
 console.log(total);
 // 8176

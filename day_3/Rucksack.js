@@ -11,16 +11,11 @@ function getPriority(rucksack) {
     var first = rucksack.slice(0, len / 2);
     var last = rucksack.slice(len / 2);
     var str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    var index = 0;
-    //   let letter: string = "";
-    //   console.log(first, last);
     for (var i = 0; i < first.length; i++) {
         for (var x = 0; x < first.length; x++) {
             if (first[i] === last[x]) {
-                var index_1 = str.indexOf(first[i]);
-                // console.log(index);
-                // console.log(first[i]);
-                return index_1 + 1;
+                var index = str.indexOf(first[i]);
+                return index + 1;
             }
         }
     }
@@ -32,6 +27,5 @@ for (var i = 0; i < arr.length; i++) {
     var result = getPriority(arr[i]);
     total += result;
 }
-// console.log(line);
 console.log(total);
 // 8176
