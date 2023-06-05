@@ -10,10 +10,8 @@ function isWithin(line) {
     var index = line.indexOf(",");
     var first = line.slice(0, index);
     var second = line.slice(index + 1);
-    //   console.log(first, second);
     var arr1 = first.split("-");
     var arr2 = second.split("-");
-    //   console.log(arr1, arr2);
     var a1 = Number(arr1[0]);
     var b1 = Number(arr1[1]);
     var a2 = Number(arr2[0]);
@@ -28,7 +26,6 @@ function isWithin(line) {
 }
 // const arr = readFile("input_test.txt");
 var arr = readFile("input.txt");
-// console.log(arr);
 var total = 0;
 for (var i = 0; i < arr.length; i++) {
     if (isWithin(arr[i])) {

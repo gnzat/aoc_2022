@@ -10,11 +10,9 @@ function isWithin(line: string): boolean {
   const index = line.indexOf(",");
   const first = line.slice(0, index);
   const second = line.slice(index + 1);
-  //   console.log(first, second);
 
   const arr1 = first.split("-");
   const arr2 = second.split("-");
-  //   console.log(arr1, arr2);
 
   const a1 = Number(arr1[0]);
   const b1 = Number(arr1[1]);
@@ -31,7 +29,6 @@ function isWithin(line: string): boolean {
 
 // const arr = readFile("input_test.txt");
 const arr = readFile("input.txt");
-// console.log(arr);
 let total = 0;
 
 for (let i = 0; i < arr.length; i++) {
