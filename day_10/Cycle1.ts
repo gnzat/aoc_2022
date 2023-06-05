@@ -3,7 +3,7 @@ import * as fs from "fs";
 function getValue(lines: string[], cycle: number): number {
   let i = 1;
   let j = 0;
-  let X = 1;
+  let x = 1;
 
   while (i <= cycle) {
     const line = lines[j]; //"noop"
@@ -20,23 +20,20 @@ function getValue(lines: string[], cycle: number): number {
         }
 
         if (round === 2) {
-          X += value;
+          x += value;
         }
         i++;
       }
     }
     j++;
   }
-  return X;
+  return x;
 }
 
 // const file = "input_test.txt"; //13360
 const file = "input.txt";
 const data = fs.readFileSync(file, "utf8");
 const lines = data.split("\n");
-// const cycle = 180;
-// const X = getValue(lines, cycle);
-// console.log(X * cycle);
 const cycleArray = [20, 60, 100, 140, 180, 220];
 const total = cycleArray
   .map((cycle) => getValue(lines, cycle) * cycle)

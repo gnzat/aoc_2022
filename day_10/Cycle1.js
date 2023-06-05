@@ -4,7 +4,7 @@ var fs = require("fs");
 function getValue(lines, cycle) {
     var i = 1;
     var j = 0;
-    var X = 1;
+    var x = 1;
     while (i <= cycle) {
         var line = lines[j]; //"noop"
         var action = line.slice(0, 4);
@@ -18,22 +18,19 @@ function getValue(lines, cycle) {
                     break;
                 }
                 if (round === 2) {
-                    X += value;
+                    x += value;
                 }
                 i++;
             }
         }
         j++;
     }
-    return X;
+    return x;
 }
 // const file = "input_test.txt"; //13360
 var file = "input.txt";
 var data = fs.readFileSync(file, "utf8");
 var lines = data.split("\n");
-// const cycle = 180;
-// const X = getValue(lines, cycle);
-// console.log(X * cycle);
 var cycleArray = [20, 60, 100, 140, 180, 220];
 var total = cycleArray
     .map(function (cycle) { return getValue(lines, cycle) * cycle; })
