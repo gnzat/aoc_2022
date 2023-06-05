@@ -135,6 +135,7 @@ const lines = fs.readFileSync(file, "utf8").split("\n");
 for (const line of lines) {
   process(data.head, data.knots, line);
 }
+
 const uniqueTails = new Set(data.tailMoves.map((coord) => coord.toString())); //need toString() as set can add in same arrays
 console.log(uniqueTails.size);
 //2154

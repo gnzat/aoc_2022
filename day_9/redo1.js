@@ -3,7 +3,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var fs = require("fs");
 // need to apply instructions - one at a time
 function oneInstruction(direction, data) {
-    // const amount = Number(arr[1]); //lets not care about the amount first
     switch (direction) {
         case "U": {
             data.prevHead = data.head;
@@ -106,3 +105,4 @@ for (var _i = 0, lines_1 = lines; _i < lines_1.length; _i++) {
 }
 var uniqueTails = new Set(data.tailMoves.map(function (coord) { return coord.toString(); })); //need toString() as set can add in same arrays
 console.log(uniqueTails.size);
+//6057

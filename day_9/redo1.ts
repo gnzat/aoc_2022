@@ -14,8 +14,6 @@ type Record = {
 
 // need to apply instructions - one at a time
 function oneInstruction(direction: string, data: Record): Coordinate {
-  // const amount = Number(arr[1]); //lets not care about the amount first
-
   switch (direction) {
     case "U": {
       data.prevHead = data.head;
@@ -101,6 +99,7 @@ function process(data: Record, instructions: string): Record {
   const direction = instruction[0];
   const amount = Number(instruction[1]);
   const arr: string[] = [];
+
   for (let i = 0; i < amount; i++) {
     arr.push(direction);
   } //[R, R, R, R]

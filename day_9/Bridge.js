@@ -10,7 +10,7 @@ var record = {
 };
 var head = [0, 0]; //(x, y)
 var tail = [0, 0];
-var head_arr = [[0, 0]];
+var headArr = [[0, 0]];
 for (var _i = 0, lines_1 = lines; _i < lines_1.length; _i++) {
     var line = lines_1[_i];
     var arr = line.split(" ");
@@ -31,7 +31,7 @@ for (var _i = 0, lines_1 = lines; _i < lines_1.length; _i++) {
             head[1] -= 1;
         }
         var temp = [head[0], head[1]];
-        head_arr.push(temp); //to record head movements to get previous head input
+        headArr.push(temp); //to record head movements to get previous head input
         // tail - check if its one step apart & continue with the necessary steps:
         if (isOne(tail, head)) {
             continue;
@@ -53,7 +53,7 @@ for (var _i = 0, lines_1 = lines; _i < lines_1.length; _i++) {
             }
             // if away diagonally (can be in any direction)
             else {
-                tail = head_arr[head_arr.length - 2];
+                tail = headArr[headArr.length - 2];
             }
             // record tail movements:
             var moves = tail.join(",");
@@ -68,25 +68,23 @@ for (var _i = 0, lines_1 = lines; _i < lines_1.length; _i++) {
 }
 //function to check if tail is one step away - returns T/F
 function isOne(tail, head) {
-    var tail_x = tail[0];
-    var tail_y = tail[1];
-    var head_x = head[0];
-    var head_y = head[1];
-    if (head_y === tail_y && head_x === tail_x) {
+    var tailX = tail[0];
+    var tailY = tail[1];
+    var headX = head[0];
+    var headY = head[1];
+    if (headY === tailY && headX === tailX) {
         return true;
     }
     // check up/down (y-axis):
-    else if ((Math.abs(head_y - tail_y) === 1 && head_x === tail_x) ||
-        (Math.abs(head_y - tail_y) === 0 && head_x === tail_x)) {
+    else if (Math.abs(headY - tailY) === 1 && headX === tailX) {
         return true;
     }
     // check right/left (x-axis):
-    else if ((Math.abs(head_x - tail_x) === 1 && head_y === tail_y) ||
-        (Math.abs(head_x - tail_x) === 0 && head_y === tail_y)) {
+    else if (Math.abs(headX - tailX) === 1 && headY === tailY) {
         return true;
     }
     // check diagonal:
-    else if (Math.abs(head_x - tail_x) === 1 && Math.abs(head_y - tail_y) === 1) {
+    else if (Math.abs(headX - tailX) === 1 && Math.abs(headY - tailY) === 1) {
         return true;
     }
     return false;

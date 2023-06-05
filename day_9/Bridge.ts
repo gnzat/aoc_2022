@@ -9,7 +9,7 @@ const record = {
 };
 let head = [0, 0]; //(x, y)
 let tail = [0, 0];
-let head_arr: number[][] = [[0, 0]];
+let headArr: number[][] = [[0, 0]];
 
 for (const line of lines) {
   const arr = line.split(" ");
@@ -29,7 +29,7 @@ for (const line of lines) {
     }
 
     const temp = [head[0], head[1]];
-    head_arr.push(temp); //to record head movements to get previous head input
+    headArr.push(temp); //to record head movements to get previous head input
 
     // tail - check if its one step apart & continue with the necessary steps:
     if (isOne(tail, head)) {
@@ -49,7 +49,7 @@ for (const line of lines) {
       }
       // if away diagonally (can be in any direction)
       else {
-        tail = head_arr[head_arr.length - 2];
+        tail = headArr[headArr.length - 2];
       }
 
       // record tail movements:
@@ -65,28 +65,24 @@ for (const line of lines) {
 
 //function to check if tail is one step away - returns T/F
 function isOne(tail: number[], head: number[]): Boolean {
-  const tail_x = tail[0];
-  const tail_y = tail[1];
-  const head_x = head[0];
-  const head_y = head[1];
+  const tailX = tail[0];
+  const tailY = tail[1];
+  const headX = head[0];
+  const headY = head[1];
 
-  if (head_y === tail_y && head_x === tail_x) {
+  if (headY === tailY && headX === tailX) {
     return true;
   }
   // check up/down (y-axis):
-  else if (
-    (Math.abs(head_y - tail_y) === 1 && head_x === tail_x)
-  ) {
+  else if (Math.abs(headY - tailY) === 1 && headX === tailX) {
     return true;
   }
   // check right/left (x-axis):
-  else if (
-    (Math.abs(head_x - tail_x) === 1 && head_y === tail_y)
-  ) {
+  else if (Math.abs(headX - tailX) === 1 && headY === tailY) {
     return true;
   }
   // check diagonal:
-  else if (Math.abs(head_x - tail_x) === 1 && Math.abs(head_y - tail_y) === 1) {
+  else if (Math.abs(headX - tailX) === 1 && Math.abs(headY - tailY) === 1) {
     return true;
   }
 
@@ -96,5 +92,4 @@ function isOne(tail: number[], head: number[]): Boolean {
 //get number of moves:
 const number = Object.keys(record).length;
 console.log(number);
-
 //6057
