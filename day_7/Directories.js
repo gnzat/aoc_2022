@@ -34,23 +34,19 @@ for (var _i = 0, lines_1 = lines; _i < lines_1.length; _i++) {
     }
     //if it is a number (file size)
     else if (!isNaN(Number(l[0]))) {
-        // console.log(l[0]);
         var path = cd.join("");
         sizes[path] += Number(l[0]);
         //to add file sizes to all directories involved:
         for (var i = 1; i < cd.length; i++) {
             var new_cd = cd.slice(0, -i).join("");
-            // console.log(new_cd);
             sizes[new_cd] += Number(l[0]);
         }
     }
 }
-// console.log(sizes);
+// part 1:
 // let total: number = 0;
 // for (const key of Object.keys(sizes)) {
-//     //part 1:
 //     if (sizes[key] <= 100000) {
-//         // console.log(sizes[key]);
 //         total += sizes[key];
 //     }
 // }

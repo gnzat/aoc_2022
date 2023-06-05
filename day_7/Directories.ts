@@ -8,7 +8,7 @@ const lines: string[] = data.split("\n");
 let cd = ["/"];
 let sizes = { "/": 0 };
 for (const line of lines) {
-  let l = line.split(" "); //split line into array
+  const l = line.split(" "); //split line into array
 
   if (l[0] === "$") {
     //handle paths
@@ -33,26 +33,21 @@ for (const line of lines) {
 
   //if it is a number (file size)
   else if (!isNaN(Number(l[0]))) {
-    // console.log(l[0]);
     const path: string = cd.join("");
     sizes[path] += Number(l[0]);
 
     //to add file sizes to all directories involved:
     for (let i = 1; i < cd.length; i++) {
       const new_cd: string = cd.slice(0, -i).join("");
-      // console.log(new_cd);
       sizes[new_cd] += Number(l[0]);
     }
   }
 }
-// console.log(sizes);
 
+// part 1:
 // let total: number = 0;
 // for (const key of Object.keys(sizes)) {
-
-//     //part 1:
 //     if (sizes[key] <= 100000) {
-//         // console.log(sizes[key]);
 //         total += sizes[key];
 //     }
 // }
