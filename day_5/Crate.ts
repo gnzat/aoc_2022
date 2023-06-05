@@ -3,17 +3,15 @@ import * as fs from "fs";
 // const text = "input_test.txt";
 const text = "input.txt";
 const data = fs.readFileSync(text, "utf8");
-const [stacks_data, instructions_data] = data.split("\n\n");
-
-const stacks = stacks_data
+const [stacksData, instructionsData] = data.split("\n\n");
+const stacks = stacksData
   .split("\n")
   .filter(Boolean)
   .map((line) =>
     line.includes("[")
-      ? Array.from(line.matchAll(/([A-Z]+|\s{4})/g)).map((m) => m[1])
-      : Array.from(line.matchAll(/(\d+)/g)).map((m) => m[1])
+      ? Array.from(line.matchAll(/([A-Z]+|\s{4})/g)).map((m) => m[1]) //regex matches 1 or more uppercase letters or exactly 4 consecutive whitespaces
+      : Array.from(line.matchAll(/(\d+)/g)).map((m) => m[1]) //regex matches 1 or more digits 
   );
-// console.log(stacks);
 
 // sort into individual crates
 const out: string[][] = [];
@@ -30,17 +28,14 @@ for (let i = stacks.length - 2; i >= 0; i--) {
     }
   }
 }
-// console.log(out);
-// [ [ 'Z', 'N' ], [ 'M', 'C', 'D' ], [ 'P' ] ]
 
 // handling instructions part
-const instructions = instructions_data.split("\n").map((line) => {
+const instructions = instructionsData.split("\n").map((line) => {
   const [move, from, to] = Array.from(line.matchAll(/(\d+)/g))
     .map((m) => m[1])
     .map(Number);
   return { move, from: from - 1, to: to - 1 };
 });
-// console.log(instructions);
 
 // sorting crates
 for (let i = 0; i < instructions.length; i++) {
@@ -57,14 +52,11 @@ for (let i = 0; i < instructions.length; i++) {
   //start from index of element we want from crate and sort to to_crate
   for (let n = out[from].length - number; n < out[from].length; n++) {
     out[to].push(String(out[from][n]));
-    // console.log(out[from][n]);
   }
 
   // remove elements from from_crate
   out[from].splice(-number, number);
 }
-
-console.log(out);
 
 let result: string[] = [];
 for (let x = 0; x < out.length; x++) {
