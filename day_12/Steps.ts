@@ -1,4 +1,3 @@
-//learning round
 import * as fs from "fs";
 
 const file = "input_test.txt";
@@ -24,6 +23,8 @@ function getInput() {
   res.grid = lines.map((line, y) => {
     return line.split("").map((ch, x) => {
       if (ch === "S") {
+        //part 1
+        // if (ch === "X") {
         res.start = { y, x };
         return 0;
       }
@@ -93,7 +94,7 @@ function dijkstra(grid: Grid, start: Coordinate, end: Coordinate) {
     let u!: number; // add non-null assertion operator here, it will not be null or undefined
     for (const current of queue) {
       if (u === undefined || dist[current] < dist[u]) {
-        u = current; // go in order of alphabetical order 
+        u = current; // go in order of alphabetical order
         console.log(intToPoint(u));
       }
     }
@@ -132,7 +133,15 @@ function part1() {
 
 function part2() {
   const input = getInput();
+  // need to be able to initialize different "a" as start points
+  //plan - to find all possible "a" and calculate distance to "E".
+  //if distance shorter than in part 1; get distance
+  let distances: number[] = [];
+  for (let y = 0; y < lines.length; y++) {
+    for (let x = 0; x < lines[y].length; x++) {
+      // const data = dijkstra(input.grid, input.start, input.end);
+    }
+  }
 }
 
-part1();//394
-part2();
+part1(); //394

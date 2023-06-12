@@ -1,4 +1,3 @@
-//error
 import * as fs from "fs";
 
 type Coordinate = [number, number];
