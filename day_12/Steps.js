@@ -15,6 +15,8 @@ function getInput() {
     res.grid = lines.map(function (line, y) {
         return line.split("").map(function (ch, x) {
             if (ch === "S") {
+                //part 1
+                // if (ch === "X") {
                 res.start = { y: y, x: x };
                 return 0;
             }
@@ -77,8 +79,8 @@ function dijkstra(grid, start, end) {
         for (var _i = 0, queue_1 = queue; _i < queue_1.length; _i++) {
             var current = queue_1[_i];
             if (u === undefined || dist[current] < dist[u]) {
-                u = current;
-                console.log(intToPoint(u));
+                u = current; // go in order of alphabetical order
+                // console.log(intToPoint(u));
             }
         }
         if (u === pointToInt(end.x, end.y)) {
@@ -119,8 +121,4 @@ function part1() {
     var distance = data.dist[pointToInt(input.end.x, input.end.y)];
     console.log(distance);
 }
-function part2() {
-    var input = getInput();
-}
 part1(); //394
-part2();

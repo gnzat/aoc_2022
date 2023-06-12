@@ -95,7 +95,7 @@ function dijkstra(grid: Grid, start: Coordinate, end: Coordinate) {
     for (const current of queue) {
       if (u === undefined || dist[current] < dist[u]) {
         u = current; // go in order of alphabetical order
-        console.log(intToPoint(u));
+        // console.log(intToPoint(u));
       }
     }
     if (u === pointToInt(end.x, end.y)) {
@@ -129,19 +129,6 @@ function part1() {
   const data = dijkstra(input.grid, input.start, input.end);
   const distance = data.dist[pointToInt(input.end.x, input.end.y)];
   console.log(distance);
-}
-
-function part2() {
-  const input = getInput();
-  // need to be able to initialize different "a" as start points
-  //plan - to find all possible "a" and calculate distance to "E".
-  //if distance shorter than in part 1; get distance
-  let distances: number[] = [];
-  for (let y = 0; y < lines.length; y++) {
-    for (let x = 0; x < lines[y].length; x++) {
-      // const data = dijkstra(input.grid, input.start, input.end);
-    }
-  }
 }
 
 part1(); //394
